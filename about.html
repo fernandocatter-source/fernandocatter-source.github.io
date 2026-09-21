@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About · Fernando Catter</title>
+<meta name="description" content="Product and UX/UI designer working across the whole product, from deciding what it should do to making the details work.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About · Fernando Catter">
+<meta property="og:description" content="Product and UX/UI designer working across the whole product, from deciding what it should do to making the details work.">
+<meta property="og:image" content="assets/og-home.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About · Fernando Catter">
+<meta name="twitter:description" content="Product and UX/UI designer working across the whole product, from deciding what it should do to making the details work.">
+<meta name="twitter:image" content="assets/og-home.png">
+<link rel="preload" href="assets/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css?v=22">
+<link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
+<style>
+.about-hero{padding-block:120px 96px}
+.about-hero__in{display:grid;grid-template-columns:848fr 320fr;gap:80px;align-items:start}
+.about-hero__copy{display:flex;flex-direction:column;gap:24px}
+.about-hero h1{font-size:clamp(34px,4.6vw,48px);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin:0}
+.about-hero .role{font-size:clamp(21px,2.8vw,28px);font-weight:300;color:var(--ink);line-height:1.35;letter-spacing:-.01em;margin:0;max-width:720px}
+.about-hero .spans{font-size:18px;color:var(--ink-2);line-height:1.6;margin:0;max-width:720px}
+.about-hero .where{font-size:16px;color:var(--ink-4);line-height:1.5;margin:0;max-width:720px}
+/* the board sets the print slightly up and left of a pale offset block */
+.portrait{position:relative;width:188px;height:270px;margin:8px 0 0 10px}
+.portrait::before{content:'';position:absolute;left:8px;top:10px;width:180px;height:260px;background:#cfe0e8}
+.portrait img{position:relative;width:180px;height:260px;object-fit:cover;display:block}
+@media (max-width:860px){
+  .about-hero{padding-block:64px}
+  .about-hero__in{grid-template-columns:1fr;gap:40px}
+  .portrait{margin:0}
+}
+.sec{padding-block:112px}
+/* the label is an eyebrow, so it keeps the eyebrow's size against .sec p */
+.sec > .eyebrow{font-size:10px;line-height:1.4;max-width:none;margin:0 0 32px}
+.sec p{font-size:18px;color:var(--ink-2);line-height:1.62;margin:0 0 32px;max-width:912px}
+.sec p:last-child{margin-bottom:0}
+.sec--wide > .eyebrow{margin-bottom:48px}
+.sec--wide p{margin-bottom:24px}
+.sec--tight > .eyebrow{margin-bottom:20px}
+.sec--tight p{margin-bottom:20px}
+/* the board sets each principle as a 360 label against an 824 column, with a
+   rule above every one of them */
+.principles{margin-top:0}
+.principle{display:grid;grid-template-columns:360px minmax(0,824px);column-gap:64px;border-top:1px solid var(--rule);padding-block:28px}
+.principle h3{font-family:'Inter',ui-sans-serif,system-ui,sans-serif;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin:0;line-height:1.55}
+.principle p{font-size:17px;color:var(--ink-3);margin:0;line-height:1.6}
+/* the board holds a principle to two lines of body so the rules keep a rhythm */
+@media (min-width:861px){ .principle{min-height:110px} }
+@media (max-width:860px){ .principle{grid-template-columns:1fr;row-gap:12px} }
+.collage{display:flex;gap:12px;margin-top:0;flex-wrap:wrap}
+.collage img{width:110px;height:110px;object-fit:cover;border-radius:4px}
+.looking h2{font-size:clamp(22px,2.6vw,28px);font-weight:700;letter-spacing:-.015em;line-height:1.36;margin:0;max-width:912px}
+.looking p{margin-top:32px}
+.looking a.mail{display:block;width:fit-content;margin-top:64px;font-size:18px;font-weight:500;color:var(--accent)}
+@media (max-width:620px){ .sec{padding-block:72px} }
+</style>
+</head>
+<body id="top">
+
+<header class="site-head">
+  <div class="wrap site-head__in">
+    <a class="brand" href="index.html">Fernando Catter</a>
+    <nav class="nav" aria-label="Main">
+      <a href="work.html">Work</a>
+      <a href="about.html" aria-current="page">About</a>
+      <span class="lang"><span class="on">EN</span><span class="sep">/</span><span class="off">ES</span></span>
+      <a class="resume-link" href="resume.html">Resume <span aria-hidden="true">↗</span></a>
+    </nav>
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" data-menu-open><span></span></button>
+  </div>
+</header>
+
+
+
+<main>
+  <section class="about-hero wrap">
+    <div class="about-hero__in">
+      <div class="about-hero__copy">
+        <p class="eyebrow eyebrow--wide">About</p>
+        <h1>Fernando Catter</h1>
+        <p class="role">Product and UX/UI designer working across the whole product, <span class="accent" style="color:var(--accent)">from deciding what it should do</span> to making the details work</p>
+        <p class="spans">My work spans product definition, interaction design, interface design, systems, and UX writing.</p>
+        <p class="where">Lima, Peru. Working across US time zones. English and Spanish.</p>
+      </div>
+      <figure class="portrait">
+        <img src="portfolio-assets/about-2026/fernando-portrait.webp" alt="Fernando Catter" width="180" height="260">
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec wrap">
+    <p class="eyebrow">I like working across the seams</p>
+    <p>What should the product already know before asking someone a question? What belongs in the interface, and what belongs in the system underneath it? When should the product act, and when should it stay quiet? Which parts of an experience should change for each customer, and which should stay consistent?</p>
+  </section>
+
+  <section class="sec wrap">
+    <p class="eyebrow">From first designer to product partner</p>
+    <p>I joined Vinsyt in 2022 as its first designer. The company had a dealership facing product, but no consumer app and no established design practice.</p>
+    <p>Since then, I have worked across the consumer app, owner web experience, communications, referral program, and the shared design system behind them.</p>
+    <p>Working in a small team has kept me close to the entire product process. I help define scope and flows, design the interface and copy, build components and states, and stay involved with engineering as the work moves into production.</p>
+  </section>
+
+  <section class="sec sec--wide wrap">
+    <p class="eyebrow">How I work</p>
+    <div class="principles">
+      <div class="principle"><h3>Understand before drawing</h3><p>I start with questions. The quality of the interface usually depends on context that is not visible in the brief.</p></div>
+      <div class="principle"><h3>Make the decision visible</h3><p>A good flow should make it clear what the product knows, what it is asking from the person, and what will happen next.</p></div>
+      <div class="principle"><h3>Design the system as well as the screen</h3><p>I look for the rules behind repeated decisions so the product can grow without every new feature becoming a new design language.</p></div>
+      <div class="principle"><h3>Stay close to delivery</h3><p>APIs, data, implementation constraints, and content rules affect the experience. I built the prototypes on this site and the site itself, which is where the problems a static frame hides turn up.</p></div>
+      <div class="principle"><h3>Use AI on the real work</h3><p>I use AI every working day. I drive Figma through its MCP server to build and edit boards directly, and Claude Code to build this site and the prototypes on it. At Vinsyt I have built agentic workflows and MCP integrations as part of the product work. It changed how fast I get to something I can look at. It did not change what makes it right.</p></div>
+    </div>
+  </section>
+
+  <section class="sec looking wrap" id="contact" style="padding-bottom:104px">
+    <p class="eyebrow">What I am looking for</p>
+    <h2>I am interested in product design and UX/UI roles where I can contribute to both the direction of the product and the quality of the experience.</h2>
+    <p>I work especially well with teams where designers stay close to product and engineering and have enough ownership to follow a problem from definition through delivery.</p>
+    <a class="mail" href="mailto:fernando.catter@gmail.com?subject=Product%20designer%20role%2C%20from%20your%20portfolio">fernando.catter@gmail.com</a>
+  </section>
+
+  <section class="sec sec--tight wrap">
+    <p class="eyebrow">Away from the screen</p>
+    <p>Some of what the rest of it looks like.</p>
+    <div class="collage">
+      <img src="portfolio-assets/glimpses-2026/glimpse-1.jpg" alt="" loading="lazy" width="110" height="110">
+      <img src="portfolio-assets/glimpses-2026/glimpse-2.jpg" alt="" loading="lazy" width="110" height="110">
+      <img src="portfolio-assets/glimpses-2026/glimpse-3.jpg" alt="" loading="lazy" width="110" height="110">
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap site-foot__in">
+    <div class="foot-row">
+      <div class="foot-col">
+        <a class="back-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+        <p class="colophon"><span class="wordmark">Fernando Catter</span> / Portfolio</p>
+        <p class="colophon">About, 2026</p>
+      </div>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/fernando-catter-1a3153206" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" data-menu-close></div>
+<aside class="panel" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="panel__head">
+    <span class="brand">Fernando Catter</span>
+    <button class="panel__close" type="button" aria-label="Close menu" data-menu-close>&#10005;</button>
+  </div>
+  <hr>
+  <nav class="primary" aria-label="Sections">
+    <a href="work.html">Work</a>
+    <a href="about.html" aria-current="page">About</a>
+  </nav>
+  <hr>
+  <p class="eyebrow eyebrow--wide" style="margin-bottom:12px">Selected work</p>
+  <nav class="cases" aria-label="Case studies">
+    <a href="ivin-case-study/index.html">iVin</a>
+    <a href="evo-case-study/index.html">The Owner Web App</a>
+    <a href="lifecycle-engine/index.html">The Lifecycle Engine</a>
+    <a href="referral-program/index.html">The Referral Program</a>
+    <a href="system-page/index.html">One platform, four surfaces</a>
+    <a href="signalloop-concept/index.html">SignalLoop</a>
+    <a href="shopsmartautos-ai/index.html">ShopSmartAutos</a>
+    <a href="catch-concept/index.html">Catch</a>
+  </nav>
+  <hr>
+  <div class="util">
+    <a class="resume-link" href="resume.html">Resume <span aria-hidden="true">↗</span></a>
+    <span class="lang"><span class="on">EN</span><span class="sep">/</span><span class="off">ES</span></span>
+  </div>
+  <div class="spacer"></div>
+  <hr>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/fernando-catter-1a3153206" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</aside>
+
+<script src="assets/site.js?v=15" defer></script>
+
+</body>
+</html>

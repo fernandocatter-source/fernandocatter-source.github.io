@@ -1,0 +1,205 @@
+/* Case study layout, built on site.css.
+   The chrome keeps the 1248 site column; the reading column is 960 so the
+   prose sits at a comfortable measure and the figures can run full width. */
+.case{--read:960px}
+.case .read{max-width:var(--read);margin-inline:auto}
+
+/* ---------- hero ----------
+   The board is a 1440 composition: the panel starts at a fixed x, the copy
+   column starts at 96 and has a fixed width, and on two of the boards the
+   headline deliberately crosses the panel edge. Every horizontal measure
+   here is that board measure as a share of the stage, and the stage is
+   capped at the board width. So the hero IS the board at 1440 and above,
+   and the same board scaled below it. Nothing can drift into the artwork,
+   at any width or any zoom, because the geometry is one ratio.
+   Type scales on the stage with container units so the wraps hold too. */
+.case-hero{background:var(--paper);overflow:hidden}
+.case-hero__stage{position:relative;max-width:1440px;margin-inline:auto;container-type:inline-size}
+.case-hero__art{margin-left:var(--panel,46.6667%);width:calc(100% - var(--panel,46.6667%))}
+.case-hero__art img{width:100%;height:auto;display:block}
+/* row 1 is the board's copy offset; it gives way first if the copy runs long */
+.case-hero__in{
+  position:absolute;inset:0;display:grid;
+  grid-template-rows:minmax(0,var(--ctop,30%)) auto;
+  padding-left:6.6667%;
+  padding-right:calc(93.3333% - var(--copy,34.7222%));
+}
+.case-hero__copy{grid-row:2;display:flex;flex-direction:column;gap:20px;min-width:0}
+/* the four Vinsyt boards set this line in Geist, sentence case, not in the
+   10px all-caps the concept boards use */
+.case-hero__kicker{font-size:min(var(--eb,14px),var(--eb-cq,0.9722cqw));font-weight:var(--eb-w,500);letter-spacing:var(--eb-ls,.02em);color:var(--eb-c,var(--ink-2));line-height:1.3;margin:0}
+.case-hero__mark{display:block;align-self:flex-start;height:min(var(--mark-h,18px),var(--mark-cq,1.25cqw));width:auto;margin:0}
+.case-hero h1{font-size:min(60px,4.1667cqw);font-weight:700;letter-spacing:-.04em;line-height:.92;margin:0}
+.case-hero__lede{font-size:min(26px,1.8056cqw);font-weight:400;color:var(--ink-2);line-height:1.3;margin:0;letter-spacing:-.02em;max-width:var(--lede,none)}
+.case-hero__sub{font-size:max(14px,min(16px,1.1111cqw));color:var(--ink-3);line-height:1.6;margin:12px 0 0}
+.case-hero__meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:56px;padding-top:22px;border-top:1px solid var(--rule)}
+.case-hero__meta dt{margin:0 0 7px}
+.case-hero__meta dd{margin:0;font-size:13px;color:var(--ink-2);line-height:1.5}
+
+/* Under 1100 the board stacks the way the 390 board does: copy first, art
+   below it, both inside the page gutter. The type steps down to the mobile
+   board's scale and the measures stay readable in between. */
+@media (max-width:1100px){
+  .case-hero__stage{max-width:none;display:flex;flex-direction:column;gap:36px;padding:52px 20px 0;container-type:normal}
+  .case-hero__in{order:1;position:static;display:block;padding:0}
+  .case-hero__art{order:2;margin:0;width:100%;max-width:720px}
+  .case-hero__copy{max-width:640px}
+  .case-hero h1{font-size:clamp(34px,4.6vw,46px)}
+  .case-hero__lede{font-size:clamp(20px,2.1vw,24px);max-width:none}
+  .case-hero__sub{font-size:16px}
+  .case-hero__kicker{font-size:var(--eb,14px)}
+  .case-hero__mark{height:var(--mark-h,18px)}
+  .case-hero__meta{margin-top:40px}
+}
+@media (max-width:760px){
+  .case-hero__stage{gap:28px;padding-top:44px}
+  .case-hero__meta{grid-template-columns:1fr;gap:20px;margin-top:32px}
+}
+
+/* ---------- the metadata strip ----------
+   Straight off the boards. A 1440 row with no gap under the hero. The left
+   column is 520 wide with 96 and 40 of padding, the right 920 with 40 and 96,
+   both padded 48 top and bottom. Inside the 1248 column that reads as 424
+   against 824. The left column carries the rule between them on its right
+   edge, and because it hugs its content the rule stops where the copy does,
+   the way the board draws it. The strip closes with a rule of its own. */
+.case-strip{border-bottom:1px solid var(--sep)}
+.case-strip__in{display:grid;grid-template-columns:424fr 824fr;align-items:start}
+.case-strip__role{
+  padding:48px 40px 48px 0;border-right:1px solid var(--sep);
+  display:flex;flex-direction:column;gap:16px;
+}
+/* the board sets this line in Geist Light, which is why it holds two lines */
+.case-strip__line{font-size:24px;font-weight:300;letter-spacing:-.02em;line-height:1.4;margin:0;color:var(--ink)}
+.case-strip__meta{margin:0;padding:48px 0 48px 40px;display:flex;flex-direction:column;gap:24px}
+/* the strip's labels are Geist Bold 11 at 8 percent, not the site's Inter eyebrow */
+.case-strip .eyebrow,.case-strip dt{
+  font-family:'Geist',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.08em;line-height:1.27;
+  text-transform:uppercase;color:var(--ink-4);margin:0;
+}
+.case-strip dt{margin:0 0 6px}
+.case-strip dd{margin:0;font-size:14px;color:var(--ink-2);line-height:1.5}
+@media (max-width:860px){
+  .case-strip__in{grid-template-columns:1fr}
+  .case-strip__role{padding:40px 0 28px;border-right:0;border-bottom:1px solid var(--sep)}
+  .case-strip__line{font-size:21px}
+  .case-strip__meta{padding:28px 0 40px}
+}
+@media (max-width:620px){
+  .case-strip__role{padding-top:32px}
+  .case-strip__meta{gap:20px;padding-bottom:32px}
+}
+
+/* ---------- chapters ----------
+   Measured off the boards. A chapter pads 80 top and bottom. Inside it the
+   head and every figure block are 96 apart. The head is ONE 912 column with
+   20 between each line. A figure block is a rule, then 40, then its label
+   stack, then 40, then the art. The rail sits 56 to the left of the column,
+   out in the page margin, on a 30px rhythm. */
+.chapter{padding-block:80px;position:relative;border-bottom:1px solid var(--sep)}
+.chapter__head{max-width:912px;display:flex;flex-direction:column;gap:20px}
+.chapter__rail{
+  position:absolute;left:-56px;top:80px;width:16px;
+  font-size:11px;line-height:30px;color:var(--hair-faint);
+  font-variant-numeric:tabular-nums;letter-spacing:.02em;user-select:none;
+}
+.chapter__rail b{color:var(--accent);font-weight:600}
+/* the board sets this line in Geist SemiBold 13 at 8 percent, uppercase */
+.chapter__kicker{font-size:13px;font-weight:600;letter-spacing:.08em;line-height:1.4;text-transform:uppercase;color:var(--ink-4);margin:0}
+.chapter h2{font-size:clamp(30px,4.4vw,48px);font-weight:600;letter-spacing:-.03em;line-height:1.08;margin:0;max-width:912px}
+.chapter__body{display:contents}
+.chapter__body p{font-size:18px;color:var(--ink-2);line-height:1.6;margin:0;max-width:912px}
+@media (max-width:1420px){ .chapter__rail{display:none} }
+@media (max-width:860px){ .chapter{padding-block:56px} .chapter h2{line-height:1.12} }
+@media (max-width:620px){ .chapter{padding-block:44px} .chapter__head{gap:16px} .chapter__body p{font-size:16.5px} }
+
+/* ---------- figures ---------- */
+.fig{
+  margin:96px 0 0;border-top:1px solid var(--rule);padding-top:40px;
+  display:flex;flex-direction:column;gap:40px;
+}
+.fig__label{display:flex;flex-direction:column;gap:14px;margin:0}
+.fig__label > .eyebrow,.fig--note > .eyebrow{font-size:10px;line-height:1.4;letter-spacing:.06em;max-width:none}
+.fig__label p{font-size:18px;color:var(--ink-2);line-height:1.6;margin:0;max-width:912px}
+.fig img{width:100%;height:auto;display:block;background:var(--card)}
+@media (max-width:860px){ .fig{margin-top:56px;padding-top:28px;gap:28px} .fig__label p{font-size:16.5px} }
+@media (max-width:620px){ .fig{margin-top:40px;padding-top:22px;gap:20px} .fig__label{gap:10px} }
+
+/* a text-only movement: the rule, the label, and one paragraph */
+/* a two column movement: the board sets labelled paragraphs in a 520 column
+   beside a 640 visual, 88 apart, with a hairline between each paragraph */
+.fig--split{display:grid;grid-template-columns:520fr 640fr;column-gap:88px;align-items:start}
+.fig__notes{display:flex;flex-direction:column;gap:28px}
+.fig__note{display:flex;flex-direction:column;gap:14px}
+.fig__note + .fig__note{border-top:1px solid var(--rule);padding-top:28px}
+.fig__note p:last-child{font-size:18px;color:var(--ink-2);line-height:1.6;margin:0}
+.fig--split img{align-self:start}
+@media (max-width:980px){
+  .fig--split{grid-template-columns:1fr;row-gap:36px}
+}
+
+/* the pull quote, set against the product's own mini mark */
+.fig-quote{
+  display:flex;align-items:flex-start;gap:16px;margin:96px 0 0;
+  font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1.35;color:var(--ink);
+}
+.fig-quote img{width:28px;height:22px;flex:0 0 auto;margin-top:5px}
+@media (max-width:860px){ .fig-quote{margin-top:56px;font-size:21px;gap:12px} }
+
+/* a chapter that closes on a plain line rather than a movement */
+.chapter__tail{font-size:16px;color:var(--ink-2);line-height:1.6;margin:96px 0 0 20px;max-width:1208px}
+@media (max-width:860px){ .chapter__tail{margin-top:56px} }
+
+.fig--note{gap:14px}
+.fig--note p:last-child{font-size:18px;color:var(--ink-2);line-height:1.6;margin:0;max-width:912px}
+
+/* ---------- conditions ----------
+   The independent concept boards state what the specimen data is and is not
+   before the chapters begin. */
+.conditions{padding-block:56px;background:var(--card);border-block:1px solid var(--rule)}
+.conditions__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px;margin-top:24px}
+.cond__claim{font-size:16px;font-weight:500;color:var(--ink);line-height:1.5;margin:0 0 10px}
+.cond__note{font-size:15px;color:var(--ink-3);line-height:1.6;margin:0;max-width:52ch}
+@media (max-width:860px){ .conditions__grid{grid-template-columns:1fr;gap:28px} }
+@media (max-width:620px){ .conditions{padding-block:44px} .conditions__grid{margin-top:24px;gap:24px} }
+
+/* ---------- scope ----------
+   The boards draw this two ways. Five carry a label, a heading, a rule, then
+   the closing note. Two carry a label, then the heading and note in a 720
+   column beside the evidence in a 464 one. Both pad 120 top and bottom. */
+.scope{margin-top:0;padding-block:120px;border-bottom:1px solid var(--sep);background:var(--card)}
+.scope h2{font-size:clamp(28px,3.6vw,48px);font-weight:600;letter-spacing:-.025em;line-height:1.29;margin:0;max-width:912px}
+.scope__note{font-size:18px;color:var(--ink-2);line-height:1.6;margin:20px 0 0;max-width:720px}
+.scope ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.scope li{font-size:14px;color:var(--ink-2);line-height:1.6;padding:16px 0;border-top:1px solid var(--rule)}
+.scope li:first-child{border-top:0;padding-top:0}
+
+/* the two column shape */
+.scope > .eyebrow{margin:0 0 48px;letter-spacing:.06em}
+.scope__in{display:grid;grid-template-columns:720fr 464fr;gap:64px}
+.scope__in h2{max-width:720px}
+
+/* the ruled shape */
+.scope--rule .eyebrow{margin:0 0 14px;letter-spacing:.06em}
+.scope--rule hr{border:0;border-top:1px solid var(--rule);margin:48px 0 0}
+.scope--rule .scope__close{display:grid;grid-template-columns:612fr 612fr;gap:24px;margin-top:48px;align-items:start}
+.scope--rule .scope__note{margin:0;max-width:612px}
+
+@media (max-width:980px){
+  .scope__in{grid-template-columns:1fr;gap:36px}
+  .scope--rule .scope__close{grid-template-columns:1fr;gap:32px}
+}
+@media (max-width:620px){ .scope{padding-block:72px} .scope--rule hr{margin-top:32px} .scope--rule .scope__close{margin-top:32px} }
+
+/* ---------- related ---------- */
+.related{padding-block:96px 112px;border-top:1px solid var(--rule)}
+.related > .eyebrow{margin:0 0 32px}
+.related__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:0}
+.related__grid.one{grid-template-columns:minmax(0,640px)}
+.related-card{display:block;background:var(--paper);padding:28px;border:1px solid var(--rule)}
+.related-card h3{font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.3;margin:0 0 12px}
+.related-card p{font-size:14px;color:var(--ink-4);line-height:1.55;margin:0 0 12px;max-width:500px}
+.related-card span{font-size:13px;font-weight:500;line-height:1.4;color:var(--accent)}
+@media (max-width:860px){ .related{padding-block:64px 72px} .related__grid{grid-template-columns:1fr} }
+@media (max-width:620px){ .related{padding-block:48px 56px} .related-card{padding:22px} }
