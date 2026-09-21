@@ -16,15 +16,13 @@
   });
 
   Array.prototype.forEach.call(document.querySelectorAll('[data-copy]'), function(btn){
-    var label = btn.textContent, timer;
+    var timer;
     var status = document.getElementById(btn.getAttribute('data-status') || '');
     function done(){
       clearTimeout(timer);
-      btn.textContent = 'Copied';
       btn.setAttribute('data-done', '');
       if (status) status.textContent = btn.getAttribute('data-copied') || 'Copied';
       timer = setTimeout(function(){
-        btn.textContent = label;
         btn.removeAttribute('data-done');
         if (status) status.textContent = '';
       }, 2200);

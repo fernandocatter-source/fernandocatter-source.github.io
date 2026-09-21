@@ -163,20 +163,30 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 /* the address stays primary, the copy control and the alternates sit quieter
    under it. copy matters because plenty of recruiters read mail in a browser,
    where a mailto: does nothing useful */
-.contact__mail{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:14px}
+.contact__mail{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:14px}
 .contact__mail a.mail{margin-top:0}
+/* a glyph rather than a labelled pill, so it sits beside the address without
+   competing with it. the two icons stack, so the swap costs no layout shift */
 .copy{
-  font:inherit;font-size:13px;font-weight:500;line-height:1;color:var(--ink-3);
-  background:none;border:1px solid var(--rule);border-radius:999px;padding:7px 13px;cursor:pointer;
-  transition:color .16s cubic-bezier(.23,1,.32,1),border-color .16s cubic-bezier(.23,1,.32,1),transform .16s cubic-bezier(.23,1,.32,1);
+  display:inline-flex;align-items:center;justify-content:center;position:relative;
+  width:30px;height:30px;flex:none;padding:0;
+  background:none;border:0;border-radius:8px;cursor:pointer;color:var(--ink-4);
+  transition:color .16s cubic-bezier(.23,1,.32,1),transform .16s cubic-bezier(.23,1,.32,1);
 }
-.copy:hover{color:var(--ink);border-color:var(--sep)}
-.copy:active{transform:scale(.97)}
-.copy[data-done]{color:var(--accent);border-color:var(--accent)}
+.copy:hover{color:var(--ink)}
+.copy:active{transform:scale(.92)}
+.copy svg{
+  position:absolute;width:16px;height:16px;
+  transition:opacity .16s cubic-bezier(.23,1,.32,1),transform .16s cubic-bezier(.23,1,.32,1);
+}
+.copy .tick{opacity:0;transform:scale(.9)}
+.copy[data-done]{color:var(--accent)}
+.copy[data-done] .sheet{opacity:0;transform:scale(.9)}
+.copy[data-done] .tick{opacity:1;transform:scale(1)}
 .contact__alt{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px;font-size:14px;line-height:1.5}
 .contact__alt a{color:var(--ink-3);font-weight:500;transition:color .16s cubic-bezier(.23,1,.32,1)}
 .contact__alt a:hover{color:var(--ink)}
-@media (prefers-reduced-motion:reduce){ .copy,.contact__alt a{transition:none} }
+@media (prefers-reduced-motion:reduce){ .copy,.copy svg,.contact__alt a{transition:none} }
 @media (max-width:620px){ .contact{padding-block:72px} .contact h2{margin-top:36px} }
 
 /* ---------- footer ---------- */
