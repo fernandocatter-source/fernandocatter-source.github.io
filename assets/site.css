@@ -64,11 +64,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .lang a.off:hover{color:var(--ink)}
 .lang .sep{color:var(--hair-faint);font-weight:400}
 .resume-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--accent-soft)}
-.burger{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:0;cursor:pointer;margin-right:-10px}
-.burger span{display:block;width:20px;height:1.5px;background:var(--ink);position:relative}
-.burger span::before,.burger span::after{content:'';position:absolute;left:0;width:20px;height:1.5px;background:var(--ink)}
-.burger span::before{top:-6px}.burger span::after{top:6px}
-@media (max-width:860px){ .nav{display:none} .burger{display:flex} .site-head__in{height:64px} }
+/* the board draws three bars, the last one short and right aligned */
+.burger{
+  display:none;width:32px;height:38px;align-items:center;justify-content:flex-end;
+  background:none;border:0;border-radius:8px;cursor:pointer;padding:0;
+}
+.burger span{display:block;width:22px;height:1.5px;border-radius:1px;background:var(--ink);position:relative}
+.burger span::before,.burger span::after{
+  content:'';position:absolute;right:0;height:1.5px;border-radius:1px;background:var(--ink);
+}
+.burger span::before{top:-6.5px;width:22px}
+.burger span::after{top:6.5px;width:15px}
+@media (max-width:860px){ .nav{display:none} .burger{display:flex} }
 
 /* ---------- page head (Work, About) ---------- */
 .page-head{padding-block:120px 67px}
@@ -192,8 +199,11 @@ body.menu-open{overflow:hidden}
 .panel .primary a{display:flex;align-items:center;height:44px;font-size:23px;font-weight:700;letter-spacing:-.025em;color:var(--ink-3)}
 .panel .primary a[aria-current="page"]{color:var(--ink)}
 .panel .cases a{display:flex;align-items:center;height:44px;font-size:16px;font-weight:500;letter-spacing:-.01em;color:var(--ink-2)}
+.panel .panel__head .brand{font-size:18px}
 .panel .util{display:flex;flex-direction:column}
 .panel .util > *{display:flex;align-items:center;height:40px}
+.panel .util .resume-link{font-size:15.5px;font-weight:500}
+.panel .util .lang{font-size:15.5px;font-weight:500}
 .panel .social-links a{display:flex;align-items:center;height:40px;font-size:15px;font-weight:500;color:var(--ink-3)}
 .panel .spacer{flex:1 1 auto;min-height:1px}
 @media (prefers-reduced-motion:reduce){ .panel,.scrim{transition:none} }
@@ -214,4 +224,5 @@ body.menu-open{overflow:hidden}
   .site-foot__in{padding-block:48px 64px}
   .foot-row{gap:45px}
   .page-head__lede{font-size:16.5px}
+  .site-head .brand{font-size:20px}
 }

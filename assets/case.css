@@ -104,6 +104,7 @@
   font-size:11px;line-height:30px;color:var(--hair-faint);
   font-variant-numeric:tabular-nums;letter-spacing:.02em;user-select:none;
 }
+.chapter__rail{font-weight:500}
 .chapter__rail b{color:var(--accent);font-weight:600}
 /* the board sets this line in Geist SemiBold 13 at 8 percent, uppercase */
 .chapter__kicker{font-size:13px;font-weight:600;letter-spacing:.08em;line-height:1.4;text-transform:uppercase;color:var(--ink-4);margin:0}
@@ -195,7 +196,7 @@
 
 /* ---------- related ---------- */
 .related{padding-block:96px 112px;border-top:1px solid var(--rule)}
-.related > .eyebrow{margin:0 0 32px}
+.related > .eyebrow{margin:0 0 32px;letter-spacing:.06em}
 .related__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:0}
 .related__grid.one{grid-template-columns:minmax(0,640px)}
 .related-card{display:block;background:var(--paper);padding:28px;border:1px solid var(--rule)}
@@ -203,7 +204,9 @@
 .related-card p{font-size:14px;color:var(--ink-4);line-height:1.55;margin:0 0 12px;max-width:500px}
 .related-card span{font-size:13px;font-weight:500;line-height:1.4;color:var(--accent)}
 @media (max-width:860px){ .related{padding-block:64px 72px} .related__grid{grid-template-columns:1fr} }
-@media (max-width:620px){ .related{padding-block:48px 56px} .related-card{padding:22px} }
+@media (max-width:620px){ .related{padding-block:48px 56px} .related-card{padding:22px}
+  .related-card h3{font-size:16.5px}
+}
 
 /* phone, from the mobile 390 boards */
 @media (max-width:620px){
@@ -219,4 +222,5 @@
   .foot-cta h2{font-size:26px;letter-spacing:-.02em}
   .foot-cta p{font-size:15.5px}
   .foot-cta a{font-size:14px}
+  .scope h2{font-size:15.5px;letter-spacing:-.03em;line-height:1.3}
 }
