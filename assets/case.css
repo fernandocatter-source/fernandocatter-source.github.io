@@ -111,6 +111,7 @@
 .chapter__body{display:contents}
 .chapter__body p{font-size:18px;color:var(--ink-2);line-height:1.6;margin:0;max-width:912px}
 @media (max-width:1420px){ .chapter__rail{display:none} }
+.chapter__rail span{display:block}
 @media (max-width:860px){ .chapter{padding-block:56px} .chapter h2{line-height:1.12} }
 @media (max-width:620px){ .chapter{padding-block:44px} .chapter__head{gap:16px} .chapter__body p{font-size:16.5px} }
 
@@ -203,3 +204,19 @@
 .related-card span{font-size:13px;font-weight:500;line-height:1.4;color:var(--accent)}
 @media (max-width:860px){ .related{padding-block:64px 72px} .related__grid{grid-template-columns:1fr} }
 @media (max-width:620px){ .related{padding-block:48px 56px} .related-card{padding:22px} }
+
+/* phone, from the mobile 390 boards */
+@media (max-width:620px){
+  .case-hero__sub{font-size:15.5px}
+  .case-strip__line{font-size:19px;font-weight:300;letter-spacing:-.02em}
+  .chapter h2{font-size:32px;letter-spacing:-.03em;line-height:1.16}
+  /* the boards keep the chapter numbers on a phone, laid out as a row */
+  .chapter__rail{
+    display:flex;gap:10px;position:static;width:auto;
+    margin:0 0 20px;font-size:11px;line-height:1.4;letter-spacing:.04em;
+  }
+  .chapter__rail span{display:inline}
+  .foot-cta h2{font-size:26px;letter-spacing:-.02em}
+  .foot-cta p{font-size:15.5px}
+  .foot-cta a{font-size:14px}
+}
