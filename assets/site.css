@@ -206,9 +206,11 @@ body.menu-open{overflow:hidden}
   .contact p{font-size:15.5px}
   .contact a.mail{font-size:16.5px}
   .group-intro p.lede{font-size:16.5px}
-  /* the boards give the cover a much taller panel on a phone, with the mesh
-     filling whatever the artwork does not */
-  .card .cover{min-height:300px;display:flex;flex-direction:column;justify-content:center}
+  /* where a card has the board's own phone crop, that export already carries
+     the mesh, so the CSS mesh steps aside and the image fills the panel */
+  .cover--m{min-height:0;background:transparent}
+  .cover--m .blob{display:none}
+  .cover--m .cover__art{width:100%}
   .site-foot__in{padding-block:48px 64px}
   .foot-row{gap:45px}
   .page-head__lede{font-size:16.5px}
