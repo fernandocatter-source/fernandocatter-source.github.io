@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sobre mí · Fernando Catter</title>
+<meta name="description" content="Product designer y diseñador UX/UI que trabaja en todo el producto, desde decidir qué debe hacer hasta hacer que los detalles funcionen.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sobre mí · Fernando Catter">
+<meta property="og:description" content="Product designer y diseñador UX/UI que trabaja en todo el producto, desde decidir qué debe hacer hasta hacer que los detalles funcionen.">
+<meta property="og:image" content="https://fernandocatter.com/assets/og-home.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sobre mí · Fernando Catter">
+<meta name="twitter:description" content="Product designer y diseñador UX/UI que trabaja en todo el producto, desde decidir qué debe hacer hasta hacer que los detalles funcionen.">
+<meta name="twitter:image" content="https://fernandocatter.com/assets/og-home.png">
+<link rel="preload" href="../assets/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css?v=27">
+<link rel="icon" href="../assets/favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=2">
+<style>
+.about-hero{padding-block:120px 96px}
+.about-hero__in{display:grid;grid-template-columns:848fr 320fr;gap:80px;align-items:start}
+.about-hero__copy{display:flex;flex-direction:column;gap:24px}
+.about-hero h1{font-size:clamp(34px,4.6vw,48px);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin:0}
+.about-hero .role{font-size:clamp(21px,2.8vw,28px);font-weight:300;color:var(--ink);line-height:1.35;letter-spacing:-.01em;margin:0;max-width:720px}
+.about-hero .spans{font-size:18px;color:var(--ink-2);line-height:1.6;margin:0;max-width:720px}
+.about-hero .where{font-size:16px;color:var(--ink-4);line-height:1.5;margin:0;max-width:720px}
+/* the board sets the print slightly up and left of a pale offset block */
+.portrait{position:relative;width:188px;height:270px;margin:8px 0 0 10px}
+.portrait::before{content:'';position:absolute;left:8px;top:10px;width:180px;height:260px;background:#cfe0e8}
+.portrait img{position:relative;width:180px;height:260px;object-fit:cover;display:block}
+@media (max-width:860px){
+  .about-hero{padding-block:64px}
+  .about-hero__in{grid-template-columns:1fr;gap:40px}
+  .portrait{margin:0}
+}
+.sec{padding-block:112px}
+/* the label is an eyebrow, so it keeps the eyebrow's size against .sec p */
+.sec > .eyebrow{font-size:10px;line-height:1.4;max-width:none;margin:0 0 32px}
+.sec p{font-size:18px;color:var(--ink-2);line-height:1.62;margin:0 0 32px;max-width:912px}
+.sec p:last-child{margin-bottom:0}
+.sec--wide > .eyebrow{margin-bottom:48px}
+.sec--wide p{margin-bottom:24px}
+.sec--tight > .eyebrow{margin-bottom:20px}
+.sec--tight p{margin-bottom:20px}
+/* the board sets each principle as a 360 label against an 824 column, with a
+   rule above every one of them */
+.principles{margin-top:0}
+.principle{display:grid;grid-template-columns:360px minmax(0,824px);column-gap:64px;border-top:1px solid var(--rule);padding-block:28px}
+.principle h3{font-family:'Inter',ui-sans-serif,system-ui,sans-serif;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin:0;line-height:1.55}
+.principle p{font-size:17px;color:var(--ink-3);margin:0;line-height:1.6}
+/* the board holds a principle to two lines of body so the rules keep a rhythm */
+@media (min-width:861px){ .principle{min-height:110px} }
+@media (max-width:860px){ .principle{grid-template-columns:1fr;row-gap:12px} }
+.collage{display:flex;gap:12px;margin-top:0;flex-wrap:wrap}
+.collage img{width:110px;height:110px;object-fit:cover;border-radius:4px}
+.looking h2{font-size:clamp(22px,2.6vw,28px);font-weight:700;letter-spacing:-.015em;line-height:1.36;margin:0;max-width:912px}
+.looking p{margin-top:32px}
+.looking a.mail{display:block;width:fit-content;margin-top:64px;font-size:18px;font-weight:500;color:var(--accent)}
+@media (max-width:620px){ .sec{padding-block:72px} }
+@media (max-width:620px){.about-hero .role{font-size:23px;letter-spacing:-.01em}.about-hero .spans{font-size:16.5px}.sec p{font-size:16.5px}.principle p{font-size:15.5px}.looking h2{font-size:23px}.looking a.mail,.sec a.mail{font-size:16.5px}}</style>
+
+  <link rel="alternate" hreflang="en" href="../about.html">
+  <link rel="alternate" hreflang="es" href="about.html">
+  <link rel="alternate" hreflang="x-default" href="../about.html">
+</head>
+<body id="top">
+
+<header class="site-head">
+  <div class="wrap site-head__in">
+    <a class="brand" href="index.html">Fernando Catter</a>
+    <nav class="nav" aria-label="Principal">
+      <a href="work.html">Proyectos</a>
+      <a href="about.html" aria-current="page">Sobre mí</a>
+      <span class="lang"><a class="off" href="../about.html" hreflang="en" lang="en">EN</a><span class="sep">/</span><span class="on">ES</span></span>
+      <a class="resume-link" href="resume.html">CV <span aria-hidden="true">↗</span></a>
+    </nav>
+    <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" data-menu-open><span></span></button>
+  </div>
+</header>
+
+
+
+<main>
+  <section class="about-hero wrap">
+    <div class="about-hero__in">
+      <div class="about-hero__copy">
+        <p class="eyebrow eyebrow--wide">Sobre mí</p>
+        <h1>Fernando Catter</h1>
+        <p class="role">Product designer y diseñador UX/UI que trabaja en todo el producto, <span class="accent" style="color:var(--accent)">desde decidir qué debe hacer</span> hasta hacer que los detalles funcionen</p>
+        <p class="spans">Mi trabajo abarca definición de producto, diseño de interacción, diseño de interfaz, sistemas y UX writing.</p>
+        <p class="where">Lima, Perú. Trabajo en husos horarios de Estados Unidos. Inglés y español.</p>
+      </div>
+      <figure class="portrait">
+        <img src="../portfolio-assets/about-2026/fernando-portrait.webp" alt="Fernando Catter" width="180" height="260">
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec wrap">
+    <p class="eyebrow">Me gusta trabajar en las costuras</p>
+    <p>¿Qué debería saber ya el producto antes de hacerle una pregunta a alguien? ¿Qué corresponde a la interfaz y qué al sistema que está debajo? ¿Cuándo debe actuar el producto y cuándo debe quedarse callado? ¿Qué partes de una experiencia deberían cambiar para cada cliente y cuáles deberían mantenerse constantes?</p>
+  </section>
+
+  <section class="sec wrap">
+    <p class="eyebrow">De primer diseñador a socio de producto</p>
+    <p>Entré a Vinsyt en 2022 como su primer diseñador. La empresa tenía un producto para concesionarios, pero ninguna app de consumo y ninguna práctica de diseño establecida.</p>
+    <p>Desde entonces he trabajado en la app de consumo, la experiencia web del propietario, las comunicaciones, el programa de referidos y el design system compartido que está detrás.</p>
+    <p>Trabajar en un equipo pequeño me ha mantenido cerca de todo el proceso de producto. Ayudo a definir alcance y flujos, diseño la interfaz y el copy, construyo componentes y estados, y sigo involucrado con ingeniería mientras el trabajo pasa a producción.</p>
+  </section>
+
+  <section class="sec sec--wide wrap">
+    <p class="eyebrow">Cómo trabajo</p>
+    <div class="principles">
+      <div class="principle"><h3>Entender antes de dibujar</h3><p>Empiezo con preguntas. La calidad de la interfaz suele depender de contexto que no se ve en el brief.</p></div>
+      <div class="principle"><h3>Hacer visible la decisión</h3><p>Un buen flujo debe dejar claro qué sabe el producto, qué le está pidiendo a la persona y qué va a pasar después.</p></div>
+      <div class="principle"><h3>Diseñar el sistema además de la pantalla</h3><p>Busco las reglas detrás de las decisiones que se repiten para que el producto pueda crecer sin que cada función nueva se convierta en un lenguaje de diseño nuevo.</p></div>
+      <div class="principle"><h3>Mantenerme cerca de la entrega</h3><p>Las APIs, los datos, las restricciones de implementación y las reglas de contenido afectan la experiencia. Construí los prototipos de este sitio y el sitio mismo, que es donde aparecen los problemas que un frame estático esconde.</p></div>
+      <div class="principle"><h3>Usar IA en el trabajo real</h3><p>Uso IA todos los días de trabajo. Manejo Figma a través de su servidor MCP para construir y editar boards directamente, y Claude Code para construir este sitio y los prototipos que tiene. En Vinsyt he construido flujos agénticos e integraciones MCP como parte del trabajo de producto. Cambió qué tan rápido llego a algo que puedo mirar. No cambió qué es lo que lo hace correcto.</p></div>
+    </div>
+  </section>
+
+  <section class="sec looking wrap" id="contact" style="padding-bottom:104px">
+    <p class="eyebrow">Qué estoy buscando</p>
+    <h2>Me interesan roles de Product Design y UX/UI donde pueda aportar tanto a la dirección del producto como a la calidad de la experiencia.</h2>
+    <p>Trabajo especialmente bien con equipos donde los diseñadores se mantienen cerca de producto e ingeniería y tienen suficiente autonomía para seguir un problema desde la definición hasta la entrega.</p>
+    <a class="mail" href="mailto:fernando.catter@gmail.com?subject=Product%20designer%20role%2C%20from%20your%20portfolio">fernando.catter@gmail.com</a>
+  </section>
+
+  <section class="sec sec--tight wrap">
+    <p class="eyebrow">Lejos de la pantalla</p>
+    <p>Algo de cómo se ve el resto.</p>
+    <div class="collage">
+      <img src="../portfolio-assets/glimpses-2026/glimpse-1.jpg" alt="" loading="lazy" width="110" height="110">
+      <img src="../portfolio-assets/glimpses-2026/glimpse-2.jpg" alt="" loading="lazy" width="110" height="110">
+      <img src="../portfolio-assets/glimpses-2026/glimpse-3.jpg" alt="" loading="lazy" width="110" height="110">
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap site-foot__in">
+    <div class="foot-row">
+      <div class="foot-col">
+        <a class="back-top" href="#top">Volver arriba <span aria-hidden="true">↑</span></a>
+        <p class="colophon"><span class="wordmark">Fernando Catter</span> / Portafolio</p>
+        <p class="colophon">Sobre mí, 2026</p>
+      </div>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/fernando-catter-1a3153206" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" data-menu-close></div>
+<aside class="panel" role="dialog" aria-modal="true" aria-label="Menú">
+  <div class="panel__head">
+    <span class="brand">Fernando Catter</span>
+    <button class="panel__close" type="button" aria-label="Cerrar menú" data-menu-close>&#10005;</button>
+  </div>
+  <hr>
+  <nav class="primary" aria-label="Secciones">
+    <a href="work.html">Proyectos</a>
+    <a href="about.html" aria-current="page">Sobre mí</a>
+  </nav>
+  <hr>
+  <p class="eyebrow eyebrow--wide" style="margin-bottom:12px">Trabajo seleccionado</p>
+  <nav class="cases" aria-label="Casos de estudio">
+    <a href="ivin-case-study/index.html">iVin</a>
+    <a href="evo-case-study/index.html">The Owner Web App</a>
+    <a href="lifecycle-engine/index.html">The Lifecycle Engine</a>
+    <a href="referral-program/index.html">The Referral Program</a>
+    <a href="system-page/index.html">Una plataforma, cuatro superficies</a>
+    <a href="signalloop-concept/index.html">SignalLoop</a>
+    <a href="shopsmartautos-ai/index.html">ShopSmartAutos</a>
+    <a href="catch-concept/index.html">Catch</a>
+  </nav>
+  <hr>
+  <div class="util">
+    <a class="resume-link" href="resume.html">CV <span aria-hidden="true">↗</span></a>
+    <span class="lang"><a class="off" href="../about.html" hreflang="en" lang="en">EN</a><span class="sep">/</span><span class="on">ES</span></span>
+  </div>
+  <div class="spacer"></div>
+  <hr>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/fernando-catter-1a3153206" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</aside>
+
+<script src="../assets/site.js?v=15" defer></script>
+
+</body>
+</html>
