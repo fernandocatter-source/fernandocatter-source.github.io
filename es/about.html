@@ -14,7 +14,7 @@
 <meta name="twitter:description" content="Product designer y diseñador UX/UI que trabaja en todo el producto, desde decidir qué debe hacer hasta hacer que los detalles funcionen.">
 <meta name="twitter:image" content="https://fernandocatter.com/assets/og-home.png">
 <link rel="preload" href="../assets/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=28">
+<link rel="stylesheet" href="../assets/site.css?v=29">
 <link rel="icon" href="../assets/favicon.svg?v=2" type="image/svg+xml">
 <link rel="icon" href="../assets/favicon-32.png?v=2" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=2">
@@ -57,7 +57,8 @@
 .collage img{width:110px;height:110px;object-fit:cover;border-radius:4px}
 .looking h2{font-size:clamp(22px,2.6vw,28px);font-weight:700;letter-spacing:-.015em;line-height:1.36;margin:0;max-width:912px}
 .looking p{margin-top:32px}
-.looking a.mail{display:block;width:fit-content;margin-top:64px;font-size:18px;font-weight:500;color:var(--accent)}
+.looking a.mail{display:block;width:fit-content;margin-top:0;font-size:18px;font-weight:500;color:var(--accent)}
+.looking .contact__mail{margin-top:48px}
 @media (max-width:620px){ .sec{padding-block:72px} }
 @media (max-width:620px){.about-hero .role{font-size:23px;letter-spacing:-.01em}.about-hero .spans{font-size:16.5px}.sec p{font-size:16.5px}.principle p{font-size:15.5px}.looking h2{font-size:23px}.looking a.mail,.sec a.mail{font-size:16.5px}}</style>
 
@@ -125,7 +126,16 @@
     <p class="eyebrow">Qué estoy buscando</p>
     <h2>Me interesan roles de Product Design y UX/UI donde pueda aportar tanto a la dirección del producto como a la calidad de la experiencia.</h2>
     <p>Trabajo especialmente bien con equipos donde los diseñadores se mantienen cerca de producto e ingeniería y tienen suficiente autonomía para seguir un problema desde la definición hasta la entrega.</p>
-    <a class="mail" href="mailto:fernando.catter@gmail.com?subject=Product%20designer%20role%2C%20from%20your%20portfolio">fernando.catter@gmail.com</a>
+    <p>El correo es la forma más rápida de contactarme. Lima, Perú, coincidencia total con el horario de Estados Unidos.</p>
+    <div class="contact__mail">
+      <a class="mail" href="mailto:fernando.catter@gmail.com?subject=Product%20designer%20role%2C%20from%20your%20portfolio">fernando.catter@gmail.com</a>
+      <button class="copy" type="button" data-copy="fernando.catter@gmail.com" data-copied="Dirección de correo copiada al portapapeles" data-status="copy-note">Copiar</button>
+      <span class="sr" role="status" id="copy-note"></span>
+    </div>
+    <div class="contact__alt">
+      <a href="https://www.linkedin.com/in/fernando-catter-1a3153206" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="resume.html">CV</a>
+    </div>
   </section>
 
   <section class="sec sec--tight wrap">
@@ -189,7 +199,7 @@
   </div>
 </aside>
 
-<script src="../assets/site.js?v=15" defer></script>
+<script src="../assets/site.js?v=16" defer></script>
 
 </body>
 </html>
