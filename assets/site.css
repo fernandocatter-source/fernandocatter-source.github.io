@@ -99,6 +99,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 /* fallback height if an image is missing, so the mesh still reads */
 .cover--wide{min-height:0}
 .cover--w560,.cover--w664,.cover--w480{min-height:0}
+/* the board's own panel export carries the mesh, so the CSS mesh stands aside
+   and the image fills the panel at every width */
+.cover--m{min-height:0;background:transparent}
+.cover--m .blob{display:none}
+.cover--m .cover__art{width:100%}
 @media (max-width:900px){ :root{--blur:70px} }
 
 /* ---------- project card ----------
@@ -218,9 +223,6 @@ body.menu-open{overflow:hidden}
   .group-intro p.lede{font-size:16.5px}
   /* where a card has the board's own phone crop, that export already carries
      the mesh, so the CSS mesh steps aside and the image fills the panel */
-  .cover--m{min-height:0;background:transparent}
-  .cover--m .blob{display:none}
-  .cover--m .cover__art{width:100%}
   .site-foot__in{padding-block:48px 64px}
   .foot-row{gap:45px}
   .page-head__lede{font-size:16.5px}
