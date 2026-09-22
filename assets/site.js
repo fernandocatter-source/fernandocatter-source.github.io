@@ -21,7 +21,7 @@
   // a thing that replays every time you scroll past.
   var reveal = document.querySelectorAll(
     '.featured__intro,.see-all,.how,.contact,.group-intro,.sec,.row-2,' +
-    '.chapter,.scope,.related,.foot-cta,.fig img'
+    '.chapter,.scope,.related,.foot-cta'
   );
   if (!('IntersectionObserver' in window)) {
     Array.prototype.forEach.call(reveal, function(el){ el.classList.add('is-in'); });

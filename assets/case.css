@@ -249,17 +249,6 @@
   /* case.css loads after site.css, so the shared .is-in rule would lose the
      cascade to the line above on equal specificity. Named here to win it. */
   .chapter.is-in,.scope.is-in,.related.is-in,.foot-cta.is-in{opacity:1;transform:none}
-
-  /* Figures are uncovered rather than faded. The wipe runs top to bottom, the
-     direction the reader is already moving, which is why it reads as the image
-     arriving rather than as an effect played over it. 700ms: a large gesture,
-     seen once, and clip-path on an inset is composited so it stays off the
-     layout path like transform and opacity. */
-  .fig img{
-    clip-path:inset(0 0 100% 0);
-    transition:clip-path .7s var(--ease-out);
-  }
-  .fig img.is-in{clip-path:inset(0 0 0 0)}
 }
 @media (hover:hover) and (pointer:fine){
   .related-card{transition:transform .22s var(--ease-out)}
