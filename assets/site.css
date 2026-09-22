@@ -25,6 +25,7 @@
   --col:1248px;
   --blur:120px;
   --ease:cubic-bezier(.32,.72,0,1);
+  --ease-out:cubic-bezier(.23,1,.32,1);
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -255,4 +256,49 @@ body.menu-open{overflow:hidden}
   .foot-row{gap:45px}
   .page-head__lede{font-size:16.5px}
   .site-head .brand{font-size:20px}
+}
+
+
+/* ---------- motion ----------
+   Two rules govern everything below. Only transform and opacity are animated,
+   so no frame ever touches layout. And the whole reveal block sits behind
+   scripting:enabled and prefers-reduced-motion:no-preference, so a reader who
+   asks for less motion, or a browser with no JS, gets the finished page at
+   rest rather than a page waiting to be triggered. */
+
+/* pointer states. short, because these are hit constantly */
+@media (hover:hover) and (pointer:fine){
+  .card .cover__art img{transition:transform .3s var(--ease-out)}
+  .card:hover .cover__art img{transform:scale(1.02)}
+  .card h2 a,.card h3 a{transition:color .18s var(--ease-out)}
+  .card:hover h2 a,.card:hover h3 a{color:var(--accent)}
+  .card__read span,.see-all span,.card__read,.see-all{transition:transform .22s var(--ease-out),color .18s var(--ease-out)}
+  .card__read span,.see-all span{display:inline-block}
+  .card:hover .card__read span,.see-all:hover span{transform:translateX(3px)}
+}
+/* press feedback: the interface confirms it heard you */
+.burger,.panel__close{transition:transform .14s var(--ease-out)}
+.burger:active,.panel__close:active{transform:scale(.94)}
+
+@media (scripting:enabled) and (prefers-reduced-motion:no-preference){
+  /* the first screen, once, on load. 680ms end to end so it never delays reading */
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .hero>*,.page-head>*,.about-hero__copy>*{animation:rise .5s var(--ease-out) both}
+  .hero>:nth-child(2),.page-head>:nth-child(2),.about-hero__copy>:nth-child(2){animation-delay:.06s}
+  .hero>:nth-child(3),.page-head>:nth-child(3),.about-hero__copy>:nth-child(3){animation-delay:.12s}
+  .hero>:nth-child(4),.page-head>:nth-child(4),.about-hero__copy>:nth-child(4){animation-delay:.18s}
+
+  /* sections, on arrival. 10px is deliberate: enough to register as motion,
+     not enough to read as a template */
+  .featured__intro,.see-all,.how,.contact,.group-intro,.sec,.row-2>*{
+    opacity:0;transform:translateY(10px);
+    transition:opacity .5s var(--ease-out),transform .5s var(--ease-out);
+  }
+  .is-in{opacity:1;transform:none}
+  .row-2.is-in>*{opacity:1;transform:none}
+  .row-2.is-in>:nth-child(2){transition-delay:.07s}
+}
+@media (prefers-reduced-motion:reduce){
+  .card .cover__art img,.card h2 a,.card h3 a,.card__read,.card__read span,
+  .see-all,.see-all span,.burger,.panel__close{transition:none}
 }

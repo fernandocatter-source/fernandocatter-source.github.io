@@ -15,6 +15,27 @@
     img.addEventListener('error', function(){ if(img.parentNode) img.parentNode.style.display = 'none'; });
   });
 
+  // Reveal on arrival. The hidden state lives in CSS behind (scripting:enabled),
+  // so if this file never loads the page still renders complete and still.
+  // Each element is unobserved after its first reveal: it is an entrance, not
+  // a thing that replays every time you scroll past.
+  var reveal = document.querySelectorAll(
+    '.featured__intro,.see-all,.how,.contact,.group-intro,.sec,.row-2,' +
+    '.chapter,.scope,.related,.foot-cta'
+  );
+  if (!('IntersectionObserver' in window)) {
+    Array.prototype.forEach.call(reveal, function(el){ el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    Array.prototype.forEach.call(reveal, function(el){ io.observe(el); });
+  }
+
   Array.prototype.forEach.call(document.querySelectorAll('[data-copy]'), function(btn){
     var timer;
     var status = document.getElementById(btn.getAttribute('data-status') || '');
