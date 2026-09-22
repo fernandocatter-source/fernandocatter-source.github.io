@@ -22,7 +22,13 @@
   position:absolute;inset:0;display:grid;
   grid-template-rows:minmax(0,var(--ctop,30%)) auto;
   padding-left:6.6667%;
-  padding-right:calc(93.3333% - var(--copy,34.7222%));
+  /* The board's own copy width, unless that would run the column onto the art.
+     max() takes the larger padding, so this only bites where a board set a copy
+     column wider than the space in front of its panel. */
+  padding-right:max(
+    calc(93.3333% - var(--copy,34.7222%)),
+    calc(100% - var(--panel,46.6667%) + var(--hero-gap,40px))
+  );
 }
 .case-hero__copy{grid-row:2;display:flex;flex-direction:column;gap:20px;min-width:0}
 /* the four Vinsyt boards set this line in Geist, sentence case, not in the
