@@ -69,7 +69,10 @@
    against 824. The left column carries the rule between them on its right
    edge, and because it hugs its content the rule stops where the copy does,
    the way the board draws it. The strip closes with a rule of its own. */
-.case-strip{border-bottom:1px solid var(--sep)}
+/* No rule under the strip. The hairline above the facts is inside the wrap,
+   this one sat on the outer element and ran the full viewport, so the two
+   read as different systems. The whitespace before chapter 01 separates
+   them on its own. */
 /* The statement takes the full width on its own row, then Team, Surfaces and
    Stage run as three even columns beneath a hairline. The old two column split
    was 424 to 824 holding three short facts, so a wide gutter ran down the right
