@@ -70,21 +70,19 @@
    edge, and because it hugs its content the rule stops where the copy does,
    the way the board draws it. The strip closes with a rule of its own. */
 .case-strip{border-bottom:1px solid var(--sep)}
-.case-strip__in{display:grid;grid-template-columns:424fr 824fr;align-items:start}
-.case-strip__role{
-  position:relative;
-  padding:64px 40px 48px 0;
-  display:flex;flex-direction:column;gap:16px;
+/* The statement takes the full width on its own row, then Team, Surfaces and
+   Stage run as three even columns beneath a hairline. The old two column split
+   was 424 to 824 holding three short facts, so a wide gutter ran down the right
+   edge of the page while the statement sat with nothing under it. One grid
+   removes both. */
+.case-strip__in{display:block}
+.case-strip__role{padding:64px 0 34px;display:block}
+/* the board sets this line in Geist Light; at full width it holds one line */
+.case-strip__line{font-size:24px;font-weight:300;letter-spacing:-.02em;line-height:1.4;margin:14px 0 0;color:var(--ink);max-width:980px}
+.case-strip__meta{
+  margin:0;padding:30px 0 56px;border-top:1px solid var(--sep);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px;align-items:start;
 }
-/* The hero art sits flush on the strip, so a full height divider runs straight
-   into the bottom of the image. Inset it from the top and it reads as a column
-   rule between Role and Team instead of a line hanging off the artwork. */
-.case-strip__role::after{
-  content:'';position:absolute;right:0;top:48px;bottom:40px;width:1px;background:var(--sep);
-}
-/* the board sets this line in Geist Light, which is why it holds two lines */
-.case-strip__line{font-size:24px;font-weight:300;letter-spacing:-.02em;line-height:1.4;margin:0;color:var(--ink)}
-.case-strip__meta{margin:0;padding:64px 0 48px 40px;display:flex;flex-direction:column;gap:24px}
 /* the strip's labels are Geist Bold 11 at 8 percent, not the site's Inter eyebrow */
 .case-strip .eyebrow,.case-strip dt{
   font-family:'Geist',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -94,15 +92,17 @@
 .case-strip dt{margin:0 0 6px}
 .case-strip dd{margin:0;font-size:14px;color:var(--ink-2);line-height:1.5}
 @media (max-width:860px){
-  .case-strip__in{grid-template-columns:1fr}
-  .case-strip__role{padding:40px 0 28px;border-right:0;border-bottom:1px solid var(--sep)}
-  .case-strip__role::after{display:none}
+  .case-strip__role{padding:46px 0 28px}
   .case-strip__line{font-size:21px}
-  .case-strip__meta{padding:28px 0 40px}
+  .case-strip__meta{padding:26px 0 44px;gap:0 28px}
+}
+/* three columns stop being readable before the phone breakpoint does */
+@media (max-width:720px){
+  .case-strip__meta{grid-template-columns:1fr;gap:22px}
 }
 @media (max-width:620px){
-  .case-strip__role{padding-top:32px}
-  .case-strip__meta{gap:20px;padding-bottom:32px}
+  .case-strip__role{padding-top:36px}
+  .case-strip__meta{padding-bottom:34px}
 }
 
 /* ---------- chapters ----------
