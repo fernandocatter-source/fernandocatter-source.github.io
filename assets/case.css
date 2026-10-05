@@ -266,3 +266,108 @@
   .related-card:hover{transform:translateY(-2px)}
 }
 @media (prefers-reduced-motion:reduce){ .related-card{transition:none} }
+
+
+/* ---------------------------------------------------------------------------
+   Notification mockups, drawn rather than exported.
+   One unit scales the whole phone: --u is one 412th of the container width, so
+   every size below is written in the same numbers as the Figma frame. Keeping
+   it as markup means the message is real text, so it translates into es/ and
+   stays sharp at any pixel density.
+   --------------------------------------------------------------------------- */
+.nphone{
+  container-type:inline-size;
+  position:relative;aspect-ratio:412/892;
+  --u:0.242718cqw;
+  --ct-ink:#15171a;--ct-lime:#d8f06a;--ct-mute:#8d9198;--ct-body:#5c6066;
+  font-family:'Inter',ui-sans-serif,system-ui,sans-serif;
+}
+/* The body and radius sit on a pseudo element rather than on .nphone itself.
+   Container query units inside an element's OWN properties resolve against its
+   ANCESTOR container, not against itself, so a radius written here in --u came
+   out against the page width and the corner ate the status bar. A descendant
+   resolves --u against .nphone, which is what every other size in this block
+   already relies on. Keeping the body off .nphone also drops overflow:hidden,
+   so nothing can be clipped by the corner again. */
+.nphone::before{
+  content:'';position:absolute;inset:0;border-radius:calc(26 * var(--u));
+}
+.nphone--lock::before{background:linear-gradient(145deg,#f4f7f2 0%,#e5eae4 45%,#ccd4ca 100%)}
+.nphone--use::before{background:linear-gradient(145deg,#f1f3ef 0%,#e2e6e1 50%,#cfd5cc 100%)}
+
+.nphone__bar{
+  /* clear of the corner radius: at this inset the curve no longer crosses the row */
+  position:absolute;inset:calc(19 * var(--u)) calc(30 * var(--u)) auto;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:calc(13 * var(--u));font-weight:600;color:var(--ct-ink);line-height:1;
+}
+.nphone__sig{display:flex;align-items:flex-end;gap:calc(6 * var(--u))}
+.nphone__sig i{width:calc(3 * var(--u));background:var(--ct-ink);border-radius:calc(1 * var(--u))}
+.nphone__sig i:nth-child(1){height:calc(3 * var(--u))}
+.nphone__sig i:nth-child(2){height:calc(5 * var(--u))}
+.nphone__sig i:nth-child(3){height:calc(7 * var(--u))}
+.nphone__sig i:nth-child(4){height:calc(9 * var(--u))}
+.nphone__sig b{width:calc(20 * var(--u));height:calc(10 * var(--u));border-radius:calc(3 * var(--u));background:var(--ct-ink);opacity:.45}
+
+.nphone__clock{
+  position:absolute;left:0;right:0;top:calc(112 * var(--u));margin:0;text-align:center;
+  font-size:calc(96 * var(--u));font-weight:300;line-height:1.1;letter-spacing:-.02em;color:var(--ct-ink);
+}
+.nphone__date{
+  position:absolute;left:0;right:0;top:calc(244 * var(--u));margin:0;text-align:center;
+  font-size:calc(14 * var(--u));font-weight:500;letter-spacing:calc(7 * var(--u));
+  text-transform:uppercase;color:var(--ct-ink);opacity:.66;
+}
+.nphone__home{
+  position:absolute;left:50%;transform:translateX(-50%);bottom:calc(21 * var(--u));
+  width:calc(134 * var(--u));height:calc(5 * var(--u));border-radius:999px;background:var(--ct-ink);opacity:.3;
+}
+/* the home screen behind the heads-up is deliberately abstract: unbranded tiles,
+   there to say the phone is in use and nothing more */
+.nphone__grid{position:absolute;left:calc(28 * var(--u));top:calc(160 * var(--u));
+  display:grid;grid-template-columns:repeat(4,calc(66 * var(--u)));gap:calc(30 * var(--u)) calc(26 * var(--u))}
+.nphone__grid i,.nphone__dock i{display:block;background:var(--ct-ink);opacity:.085;border-radius:calc(18 * var(--u))}
+.nphone__grid i{height:calc(66 * var(--u))}
+.nphone__dock{position:absolute;left:calc(28 * var(--u));top:calc(700 * var(--u));
+  display:grid;grid-template-columns:repeat(4,calc(58 * var(--u)));gap:calc(26 * var(--u));
+  padding:calc(16 * var(--u)) calc(24 * var(--u));border-radius:calc(30 * var(--u));
+  background:rgba(255,255,255,.42)}
+.nphone__dock i{height:calc(58 * var(--u));border-radius:calc(16 * var(--u));opacity:.1}
+
+.ncard{
+  position:absolute;left:calc(12 * var(--u));right:calc(12 * var(--u));top:calc(404 * var(--u));
+  background:#fff;border-radius:calc(16 * var(--u));
+  padding:calc(14 * var(--u)) calc(16 * var(--u));
+  box-shadow:0 calc(2 * var(--u)) calc(10 * var(--u)) rgba(0,0,0,.07);
+}
+.ncard__app{display:flex;align-items:center;gap:calc(6 * var(--u));
+  font-size:calc(12 * var(--u));font-weight:600;color:var(--ct-mute);line-height:1}
+.ncard__mark{display:grid;place-items:center;width:calc(18 * var(--u));height:calc(18 * var(--u));
+  border-radius:calc(5 * var(--u));background:var(--ct-lime);color:var(--ct-ink);
+  font-size:calc(11 * var(--u));font-weight:600}
+.ncard__dot{width:calc(3 * var(--u));height:calc(3 * var(--u));border-radius:999px;background:currentColor}
+.ncard__time{font-weight:400}
+.ncard__caret{margin-left:auto;width:0;height:0;
+  border-left:calc(4.5 * var(--u)) solid transparent;border-right:calc(4.5 * var(--u)) solid transparent;
+  border-top:calc(5 * var(--u)) solid var(--ct-mute)}
+.ncard__from{margin:calc(9 * var(--u)) 0 0;font-size:calc(15 * var(--u));font-weight:600;color:var(--ct-ink);line-height:1.3}
+.ncard__msg{margin:calc(9 * var(--u)) 0 0;font-size:calc(14 * var(--u));color:var(--ct-ink);line-height:1.5}
+.ncard__msg mark{background:var(--ct-lime);color:var(--ct-ink);font-weight:500;
+  border-radius:calc(4 * var(--u));padding:calc(1 * var(--u)) calc(5 * var(--u))}
+
+/* heads-up sits at the top of the screen and folds the sender into the line */
+.ncard--headsup{
+  top:calc(56 * var(--u));left:calc(24 * var(--u));right:calc(24 * var(--u));
+  display:flex;align-items:center;gap:calc(10 * var(--u));
+  border-radius:calc(24 * var(--u));padding:calc(12 * var(--u)) calc(14 * var(--u)) calc(12 * var(--u)) calc(12 * var(--u));
+  box-shadow:0 calc(4 * var(--u)) calc(16 * var(--u)) rgba(0,0,0,.12);
+}
+.ncard--headsup .ncard__mark{width:calc(26 * var(--u));height:calc(26 * var(--u));border-radius:999px;
+  font-size:calc(13 * var(--u));flex:none}
+.ncard--headsup .ncard__msg{margin:0;color:var(--ct-body)}
+.ncard--headsup .ncard__msg b{color:var(--ct-ink);font-weight:600}
+
+/* the pair, as it appears in the case study */
+.nfig{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:calc(var(--gap,56px));
+  background:var(--card);padding:clamp(28px,4.4vw,72px);border-radius:2px}
+@media (max-width:620px){ .nfig{grid-template-columns:1fr;gap:32px;padding:24px} }
