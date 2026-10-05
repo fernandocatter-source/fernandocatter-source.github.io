@@ -322,17 +322,44 @@
   position:absolute;left:50%;transform:translateX(-50%);bottom:calc(21 * var(--u));
   width:calc(134 * var(--u));height:calc(5 * var(--u));border-radius:999px;background:var(--ct-ink);opacity:.3;
 }
-/* the home screen behind the heads-up is deliberately abstract: unbranded tiles,
-   there to say the phone is in use and nothing more */
-.nphone__grid{position:absolute;left:calc(28 * var(--u));top:calc(160 * var(--u));
-  display:grid;grid-template-columns:repeat(4,calc(66 * var(--u)));gap:calc(30 * var(--u)) calc(26 * var(--u))}
-.nphone__grid i,.nphone__dock i{display:block;background:var(--ct-ink);opacity:.085;border-radius:calc(18 * var(--u))}
-.nphone__grid i{height:calc(66 * var(--u))}
-.nphone__dock{position:absolute;left:calc(28 * var(--u));top:calc(700 * var(--u));
-  display:grid;grid-template-columns:repeat(4,calc(58 * var(--u)));gap:calc(26 * var(--u));
-  padding:calc(16 * var(--u)) calc(24 * var(--u));border-radius:calc(30 * var(--u));
-  background:rgba(255,255,255,.42)}
-.nphone__dock i{height:calc(58 * var(--u));border-radius:calc(16 * var(--u));opacity:.1}
+/* The home screen behind the heads-up carries real app icons: a glyph, a
+   rounded tile and a name, laid out the way a phone lays them out. Every mark
+   here is drawn from scratch and every name is a plain category word, so the
+   screen reads as a phone in use without borrowing anyone else's identity.
+   The tiles are held to muted inks from the Catch palette for one reason: the
+   lime in the notification has to be the only saturated thing on the screen.
+   Catch is the single lime tile, since this is the phone the notification
+   arrives on. */
+.nphone__grid{position:absolute;left:calc(22 * var(--u));right:calc(22 * var(--u));top:calc(150 * var(--u));
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));row-gap:calc(20 * var(--u))}
+.napp{display:flex;flex-direction:column;align-items:center;gap:calc(7 * var(--u));min-width:0}
+.napp i{display:grid;place-items:center;width:calc(58 * var(--u));height:calc(58 * var(--u));
+  border-radius:calc(16 * var(--u));background:var(--a,#6b7280);
+  box-shadow:0 calc(1 * var(--u)) calc(3 * var(--u)) rgba(21,23,26,.10)}
+.napp svg{width:calc(28 * var(--u));height:calc(28 * var(--u));
+  fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.napp b{font-size:calc(23 * var(--u));font-weight:600;line-height:1;color:var(--ct-ink)}
+.napp span{font-size:calc(10 * var(--u));font-weight:500;line-height:1.1;color:var(--ct-ink);opacity:.62;
+  max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* the two shortcuts a locked phone keeps in the bottom corners */
+.nphone__quick{position:absolute;left:calc(30 * var(--u));right:calc(30 * var(--u));top:calc(778 * var(--u));
+  display:flex;justify-content:space-between}
+.nphone__quick i{display:grid;place-items:center;width:calc(46 * var(--u));height:calc(46 * var(--u));
+  border-radius:999px;background:rgba(255,255,255,.55)}
+.nphone__quick svg{width:calc(21 * var(--u));height:calc(21 * var(--u));
+  fill:none;stroke:var(--ct-ink);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;opacity:.72}
+/* page dots, because a home screen with one page of apps still shows them */
+.nphone__dots{position:absolute;left:0;right:0;top:calc(655 * var(--u));
+  display:flex;justify-content:center;gap:calc(7 * var(--u))}
+.nphone__dots i{width:calc(5 * var(--u));height:calc(5 * var(--u));border-radius:999px;
+  background:var(--ct-ink);opacity:.16}
+.nphone__dots i:first-child{opacity:.42}
+.nphone__dock{position:absolute;left:calc(22 * var(--u));right:calc(22 * var(--u));top:calc(700 * var(--u));
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));justify-items:center;
+  padding:calc(13 * var(--u)) 0;border-radius:calc(30 * var(--u));
+  background:rgba(255,255,255,.52)}
+.nphone__dock .napp{gap:0}
+.nphone__dock .napp span{display:none}
 
 .ncard{
   position:absolute;left:calc(12 * var(--u));right:calc(12 * var(--u));top:calc(404 * var(--u));
